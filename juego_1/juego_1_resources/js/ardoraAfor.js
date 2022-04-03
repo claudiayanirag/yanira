@@ -9,11 +9,11 @@ if (tiAval){parent.iniciaActividade()}if ((tiTime) && (tiButtonTime)){paintButto
 }
 function paintQuest(){$("#ardoraQuest").html("");
 if (audioW[indexG].localeCompare("")==0){$("#ardoraQuest").html("<p>" + questionW[indexG] + "</p>");}else{
-$("#ardoraQuest").html("<img id='playSound' class='imaLeft' src='actividad_1_resources/media/' alt='Sound' align='left'>"+ "<p>" + questionW[indexG] + "</p>");
+$("#ardoraQuest").html("<img id='playSound' class='imaLeft' src='juego_1_resources/media/' alt='Sound' align='left'>"+ "<p>" + questionW[indexG] + "</p>");
 $("#playSound").bind("click", function (e) {var au="audio"+audioW[indexG];document.getElementById(au).play();});}
 profG=parseInt($("#ardoraQuest").css("height").replace("px", ""));
 $("#ardoraImage").html("");if (imageW[indexG].localeCompare("")!=0){$("#ardoraImage").html("<img src='"+dirMedia+imageW[indexG]+"'/>");}
-profG=profG+200;
+profG=profG+320;
 }
 function randomSort(){
 var iW=[];var iWL=[];for (i = 0; i < words.length; i++) {if (words[i].localeCompare("")!=0){iW.push(words[i]);iWL.push(wordsL[i]);wordsG.push("");wordsGL.push("");imageW.push("");questionW.push("");audioW.push("");}}

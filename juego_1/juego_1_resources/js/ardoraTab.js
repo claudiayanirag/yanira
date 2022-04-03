@@ -4,6 +4,8 @@
 var timeInterval; $(document).ready(function() {randomSort();timeInterval=setInterval("paintTab()",1000);
 var canWidth=$("#ardoraAct").css("width").replace("px","");var canHeight=$("#ardoraAct").css("height").replace("px","");$("#ardoraActCanvas").attr({"width": canWidth,"height": canHeight})
 $("#ardoraActCanvasAnim").attr({"width": canWidth,"height": canHeight});
+$("#ardoraEnu").click(function(){if (!isPlayEnu){ document.getElementById("audioEnu").play();isPlayEnu=true;}
+else{document.getElementById("audioEnu").pause(); isPlayEnu=false;}});
 $("#ardoraEnu").on("touchstart mouseover",function(){if (!isPlayEnu){document.getElementById("audioEnu").play();isPlayEnu=true;}});
 initAct();})
 function paintTab(){if (document.getElementById("ardoraTabCanvas")!=null){var canvas = document.getElementById("ardoraTabCanvas");var contexto = canvas.getContext("2d");contexto.fillStyle =$(canvas).css("background-color");
@@ -61,7 +63,7 @@ if (typeMessage=="Attempts"){ if (tiTime || tiAttempts || tiScore || tiSuccesses
 var canvas = document.getElementById("ardoraActCanvas"); document.getElementById("ardoraActCanvas").style.zIndex=5;
 document.getElementById("ardoraActCanvas").style["visibility"]="visible";canvas.width = canvas.width;
 var contexto = canvas.getContext("2d"); contexto.globalAlpha = 0.50;contexto.fillStyle = colorBack;
-contexto.fillRect(0,0,canvas.width,canvas.height); contexto.font="15px " + fMenssage; var metricsW = contexto.measureText(textMessage).width;var x=(canvas.width / 2)-(metricsW / 2);var y=(canvas.height / 2);
+contexto.fillRect(0,0,canvas.width,canvas.height); contexto.font="14px " + fMenssage; var metricsW = contexto.measureText(textMessage).width;var x=(canvas.width / 2)-(metricsW / 2);var y=(canvas.height / 2);
 if (metricsW<canvas.width-20){ contexto.beginPath(); contexto.globalAlpha = 1; contexto.lineWidth = 2; contexto.fillStyle = "white"; var xAnim=canvas.width/2; var wAnim=0;
 interval = setInterval(function () { contexto.strokeStyle = borderColor; roundedRect(contexto,xAnim,y-20,wAnim,30,5,"white"); xAnim-=1; wAnim+=2; if (wAnim>metricsW+30){ clearInterval(interval); contexto.shadowColor = "black";
 contexto.shadowBlur = 20; contexto.shadowOffsetX = 10; contexto.shadowOffsetY = 10; contexto.stroke(); contexto.beginPath(); contexto.textAlign = "left"; contexto.fillStyle = "black"; contexto.fillText(textMessage,x,y);
@@ -101,7 +103,7 @@ document.getElementById("ardoraTab").style["visibility"]="hidden";
 $("#ardoraActCanvas").css("cursor", "pointer");if (tiTime || tiAttempts || tiScore || tiSuccesses ){clearInterval(timeInterval);}var canvas = document.getElementById("ardoraActCanvas");
 var contexto = canvas.getContext("2d");canvas.width = canvas.width;contexto.globalAlpha = 0.98;contexto.fillStyle = colorButton;contexto.fillRect(0,0,canvas.width,canvas.height);
 contexto.lineWidth = 2;contexto.strokeStyle = colorSele;contexto.rect(5,5,canvas.width-10,canvas.height-10);contexto.stroke();
-contexto.font="15px " + fMenssage ;var metricsW = contexto.measureText(textButtonTime).width;var x=(canvas.width / 2)-(metricsW / 2);var y=(canvas.height / 2);
+contexto.font="14px " + fMenssage ;var metricsW = contexto.measureText(textButtonTime).width;var x=(canvas.width / 2)-(metricsW / 2);var y=(canvas.height / 2);
 contexto.beginPath(); contexto.globalAlpha = 1;contexto.lineWidth = 2;contexto.fillStyle = colorBack;var xAnim=canvas.width/2;var wAnim=0;interval = setInterval(function () {
 contexto.strokeStyle = colorText;roundedRect(contexto,xAnim,y-20,wAnim,30,5,colorBack);xAnim-=1;wAnim+=2;if (wAnim>metricsW+30){
 clearInterval(interval);contexto.shadowColor = "black";contexto.shadowBlur = 20;contexto.shadowOffsetX = 10;contexto.shadowOffsetY = 10;
